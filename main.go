@@ -213,17 +213,12 @@ func encrypt(object map[string]interface{}) string {
 func main() {
 	http.HandleFunc("/authorization", handleAuthorization)
 	http.HandleFunc("/ip", handleIp)
-	http.ListenAndServe(":8080", nil)
+	http.ListenAndServe(":10086", nil)
 }
 
 func handleAuthorization(w http.ResponseWriter, r *http.Request) {
 	//POST
 	if r.Method == "POST" {
-		// {
-		//   "domain": "27.0.0.1",
-		//   "license_code": "Y6BVU-LEZ8S-OAFIN-Z3WFD-GKOLQ",
-		//   "system_token": "3d88261b9c1787b872120f10da019554"
-		// }
 		domain := r.FormValue("domain")
 		license_code := r.FormValue("license_code")
 		system_token := r.FormValue("system_token")
